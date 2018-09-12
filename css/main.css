@@ -12,29 +12,104 @@ header {
   position: fixed;
   padding: 10px;
   width: 100%; }
+  @media screen and (min-width: 840px) {
+    header {
+      display: grid;
+      grid-template-columns: 1fr auto minmax(600px, 3fr) 1fr; } }
   header .logo {
     display: inline-block;
     width: 200px; }
+    @media screen and (min-width: 840px) {
+      header .logo {
+        grid-column: 2 / 3; } }
+  header .navToggle {
+    display: none; }
+  header .navToggleLable {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: 2em;
+    height: 100%;
+    display: flex;
+    align-items: center; }
+    @media screen and (min-width: 840px) {
+      header .navToggleLable {
+        display: none; } }
+    header .navToggleLable span, header .navToggleLable span::before, header .navToggleLable span::after {
+      display: block;
+      background: white;
+      height: 2px;
+      width: 2em;
+      border-radius: 2px;
+      position: relative; }
+    header .navToggleLable span::before, header .navToggleLable span::after {
+      content: '';
+      position: absolute; }
+    header .navToggleLable span::before {
+      bottom: 7px; }
+    header .navToggleLable span::after {
+      top: 7px; }
   header nav {
     position: absolute;
     text-align: left;
     top: 100%;
     left: 0;
     width: 100%;
-    background-color: #7e879c; }
+    background-color: #7e879c;
+    transform: scale(1, 0);
+    transform-origin: top;
+    transition: transform 400ms ease-in-out; }
+    @media screen and (min-width: 840px) {
+      header nav {
+        all: unset;
+        grid-column: 3 / 4;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center; } }
     header nav ul {
       margin: 0;
       padding: 0;
       list-style: none; }
+      @media screen and (min-width: 840px) {
+        header nav ul {
+          display: flex; } }
       header nav ul li {
         margin-bottom: 1em;
         margin-left: 1em; }
+        @media screen and (min-width: 840px) {
+          header nav ul li {
+            margin-left: 3em;
+            margin-bottom: 0; } }
         header nav ul li a {
           color: #3F3250;
           text-decoration: none;
           font-size: 1.2rem;
-          text-transform: uppercase; }
+          text-transform: uppercase;
+          opacity: 0;
+          transition: opacity 250ms ease-in-out; }
+          @media screen and (min-width: 840px) {
+            header nav ul li a {
+              opacity: 1;
+              position: relative; } }
         header nav ul li a:hover {
           color: #E14658; }
-
-/*# sourceMappingURL=main.css.map */
+        @media screen and (min-width: 840px) {
+          header nav ul li a::before {
+            content: '';
+            display: block;
+            height: 3px;
+            background: #E14658;
+            position: absolute;
+            top: -0.75em;
+            left: 0;
+            right: 0;
+            transform: scale(0, 1);
+            transition: transform ease-in-out 250ms; } }
+        @media screen and (min-width: 840px) {
+          header nav ul li a:hover::before {
+            transform: scale(1, 1); } }
+  header .navToggle:checked ~ nav {
+    transform: scale(1, 1); }
+    header .navToggle:checked ~ nav a {
+      opacity: 1;
+      transition: opacity 250ms ease-in-out 250ms; }
