@@ -1,18 +1,13 @@
 /* Scss Document */
 
 $colors: (
-	primary: #22252C,
-	primary-light: lighten(#22252C, 40%),
-	primary-dark: darken(#22252C, 40%),
-	second: #3F3250,
-	second-light: lighten(#3F3250, 40%),
-	second-dark: darken(#3F3250, 40%),
-	third: #C0B3A0,
-	third-light: lighten(#C0B3A0, 40%),
-	third-dark: darken(#C0B3A0, 40%),
-	accsent: #E14658,
-	accsent-light: lighten(#E14658, 40%),
-	accsent-dark: darken(#E14658, 40%),
+	primary: #004466,
+	primary-light: lighten(#004466, 40%),
+	primary-dark: darken(#004466, 40%),
+	second: #016699,
+	third: #99CCCC,
+	forth: #E4E5E6,
+	fith: #D95E1F
 );
 
 
@@ -36,7 +31,7 @@ body{
 
 /*------   Nav Styles  ------*/
 header{
-	background-color: color(primary-light);
+	background-color: color(primary);
 	text-align: center;
 	z-index: 999;
 	position: fixed;
@@ -94,7 +89,7 @@ header{
 		top: 100%;
 		left: 0;
 		width: 100%;
-		background-color: color(primary-light);
+		background-color: color(primary);
 		transform: scale(1,0);
 		transform-origin: top;
 		transition: transform 400ms ease-in-out;
@@ -123,7 +118,7 @@ header{
 				}
 				
 				a{
-					color: color(second);
+					color: color(forth);
 					text-decoration: none;
 					font-size: 1.2rem;
 					text-transform: uppercase;
@@ -137,14 +132,14 @@ header{
 				}
 					
 				a:hover{
-					color: color(accsent);
+					color: color(fith);
 				}
 				a::before{
 					@include desktop{
 						content: '';
 						display: block;
 						height: 3px;
-						background: color(accsent);
+						background: color(fith);
 						position: absolute;
 						top: -0.75em;
 						left: 0;
@@ -171,4 +166,23 @@ header{
 		}
 	}
 	
+}
+
+.pL,.p,.PD{
+	width: 100%;
+	height: 50px;
+	display: block;
+}
+.pL{
+	padding-top: 250px;
+	background-color: color(primary-light);
+}
+.p{
+	padding-top: 250px;
+	background-color: color(primary);
+}
+.pD{
+	padding-top: 250px;
+	background-color: color(primary-dark);
+	color: white;
 }
