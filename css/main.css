@@ -1,0 +1,40 @@
+/* Scss Document */
+body {
+  margin: 0;
+  font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, "sans-serif";
+  font-weight: 400; }
+
+/*------   Nav Styles  ------*/
+header {
+  background-color: #7e879c;
+  text-align: center;
+  z-index: 999;
+  position: fixed;
+  padding: 10px;
+  width: 100%; }
+  header .logo {
+    display: inline-block;
+    width: 200px; }
+  header nav {
+    position: absolute;
+    text-align: left;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #7e879c; }
+    header nav ul {
+      margin: 0;
+      padding: 0;
+      list-style: none; }
+      header nav ul li {
+        margin-bottom: 1em;
+        margin-left: 1em; }
+        header nav ul li a {
+          color: #3F3250;
+          text-decoration: none;
+          font-size: 1.2rem;
+          text-transform: uppercase; }
+        header nav ul li a:hover {
+          color: #E14658; }
+
+/*# sourceMappingURL=main.css.map */

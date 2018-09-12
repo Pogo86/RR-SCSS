@@ -1,0 +1,71 @@
+/* Scss Document */
+
+$colors: (
+	primary: #22252C,
+	primary-light: lighten(#22252C, 40%),
+	primary-dark: darken(#22252C, 40%),
+	second: #3F3250,
+	second-light: lighten(#3F3250, 40%),
+	second-dark: darken(#3F3250, 40%),
+	third: #C0B3A0,
+	third-light: lighten(#C0B3A0, 40%),
+	third-dark: darken(#C0B3A0, 40%),
+	accsent: #E14658,
+	accsent-light: lighten(#E14658, 40%),
+	accsent-dark: darken(#E14658, 40%),
+);
+@function color($color-name){
+	@return map-get($colors, $color-name)
+}
+
+body{
+	margin: 0;
+	font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, "sans-serif";
+	font-weight: 400;
+}
+
+/*------   Nav Styles  ------*/
+header{
+	background-color: color(primary-light);
+	text-align: center;
+	z-index: 999;
+	position: fixed;
+	padding: 10px;
+	width: 100%;
+	.logo{
+		display: inline-block;
+		width: 200px;
+	}
+	nav{
+		position: absolute;
+		text-align: left;
+		top: 100%;
+		left: 0;
+		width: 100%;
+		background-color: color(primary-light);
+		
+		ul{
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			
+			li{
+				margin-bottom: 1em;
+				margin-left: 1em;
+				
+				a{
+					color: color(second);
+					text-decoration: none;
+					font-size: 1.2rem;
+					text-transform: uppercase;
+				}
+					
+				a:hover{
+					color: color(accsent);
+				}
+				
+			}
+		}
+	}
+	
+}
