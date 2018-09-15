@@ -6,25 +6,27 @@ body {
 
 /*------   Nav Styles  ------*/
 header {
-  background-color: #7e879c;
+  background-color: #333333;
   text-align: center;
   z-index: 999;
   position: fixed;
   padding: 10px;
   width: 100%; }
-  @media screen and (min-width: 840px) {
+  @media screen and (min-width: 1025px) {
     header {
       display: grid;
       grid-template-columns: 1fr auto minmax(600px, 3fr) 1fr; } }
   header .logo {
     display: inline-block;
-    width: 200px; }
-    @media screen and (min-width: 840px) {
+    width: 150px; }
+    @media screen and (min-width: 1025px) {
       header .logo {
-        grid-column: 2 / 3; } }
+        grid-column: 2 / 3;
+        width: 200px; } }
   header .navToggle {
     display: none; }
   header .navToggleLable {
+    background-color: #A9CF54;
     position: absolute;
     top: 0;
     left: 0;
@@ -32,7 +34,7 @@ header {
     height: 100%;
     display: flex;
     align-items: center; }
-    @media screen and (min-width: 840px) {
+    @media screen and (min-width: 1025px) {
       header .navToggleLable {
         display: none; } }
     header .navToggleLable span, header .navToggleLable span::before, header .navToggleLable span::after {
@@ -55,11 +57,12 @@ header {
     top: 100%;
     left: 0;
     width: 100%;
-    background-color: #7e879c;
+    background-color: #333333;
     transform: scale(1, 0);
     transform-origin: top;
-    transition: transform 400ms ease-in-out; }
-    @media screen and (min-width: 840px) {
+    transition: transform 400ms ease-in-out;
+    clip-path: polygon(0 0, 95% 0, 40% 100%, 0 100%); }
+    @media screen and (min-width: 1025px) {
       header nav {
         all: unset;
         grid-column: 3 / 4;
@@ -70,42 +73,42 @@ header {
       margin: 0;
       padding: 0;
       list-style: none; }
-      @media screen and (min-width: 840px) {
+      @media screen and (min-width: 1025px) {
         header nav ul {
           display: flex; } }
       header nav ul li {
         margin-bottom: 1em;
         margin-left: 1em; }
-        @media screen and (min-width: 840px) {
+        @media screen and (min-width: 1025px) {
           header nav ul li {
             margin-left: 3em;
             margin-bottom: 0; } }
         header nav ul li a {
-          color: #3F3250;
+          color: white;
           text-decoration: none;
           font-size: 1.2rem;
           text-transform: uppercase;
           opacity: 0;
           transition: opacity 250ms ease-in-out; }
-          @media screen and (min-width: 840px) {
+          @media screen and (min-width: 1025px) {
             header nav ul li a {
               opacity: 1;
               position: relative; } }
         header nav ul li a:hover {
-          color: #E14658; }
-        @media screen and (min-width: 840px) {
+          color: #A9CF54; }
+        @media screen and (min-width: 1025px) {
           header nav ul li a::before {
             content: '';
             display: block;
             height: 3px;
-            background: #E14658;
+            background: #A9CF54;
             position: absolute;
             top: -0.75em;
             left: 0;
             right: 0;
             transform: scale(0, 1);
             transition: transform ease-in-out 250ms; } }
-        @media screen and (min-width: 840px) {
+        @media screen and (min-width: 1025px) {
           header nav ul li a:hover::before {
             transform: scale(1, 1); } }
   header .navToggle:checked ~ nav {
@@ -113,3 +116,148 @@ header {
     header .navToggle:checked ~ nav a {
       opacity: 1;
       transition: opacity 250ms ease-in-out 250ms; }
+
+#callToAction {
+  background-color: #333333;
+  background-image: url("../img/Twitter BG.jpg");
+  background-size: cover;
+  background-origin: -100px;
+  height: 90vh; }
+  #callToAction h1 {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 2em;
+    color: white;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%); }
+    @media screen and (min-width: 1025px) {
+      #callToAction h1 {
+        color: black; } }
+  #callToAction #actionButton {
+    text-align: right;
+    margin: auto;
+    text-decoration: none;
+    color: black;
+    background-color: #04BFBF;
+    font-size: 1.5em;
+    padding: 10px;
+    border-radius: 20px;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%); }
+
+#sectionMain {
+  background-color: #646464;
+  height: 55vh;
+  width: 100vw;
+  padding-top: 10px; }
+  @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    #sectionMain {
+      height: 90vh; } }
+  @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+    #sectionMain {
+      height: 55vh; } }
+  @media screen and (min-width: 1025px) {
+    #sectionMain {
+      height: 70vh; } }
+  #sectionMain #card {
+    margin-left: auto;
+    margin-right: auto;
+    width: 80vw;
+    height: 50vh;
+    align-content: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 1px 5px 6px #000000; }
+    @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+      #sectionMain #card {
+        height: 86vh; } }
+    @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+      #sectionMain #card {
+        height: 100vh; } }
+    @media screen and (min-width: 1025px) {
+      #sectionMain #card {
+        height: 65vh; } }
+    #sectionMain #card img {
+      width: 70vw;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      border: thick, #000, solid; }
+      @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+        #sectionMain #card img {
+          max-height: 50vh;
+          width: auto; } }
+      @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+        #sectionMain #card img {
+          max-height: 45vh;
+          width: auto;
+          max-width: 90%; } }
+      @media screen and (min-width: 1025px) {
+        #sectionMain #card img {
+          width: auto;
+          max-height: 50vh; } }
+    #sectionMain #card p {
+      width: 70vw;
+      padding-top: 2px;
+      margin-left: auto;
+      margin-right: auto; }
+
+#sections {
+  width: 100vw;
+  background-color: #bfe49e; }
+  @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    #sections {
+      display: grid;
+      grid-template-columns: 45vw 45vw;
+      grid-gap: 5px;
+      padding-top: 5px; } }
+  @media screen and (min-width: 1025px) {
+    #sections {
+      display: grid;
+      grid-template-columns: 33vw auto 33vw;
+      grid-gap: 10px;
+      padding-top: 10px; } }
+
+.section {
+  padding-top: 10px;
+  height: 60vh;
+  width: 100vw; }
+  @media screen and (min-width: 1025px) {
+    .section {
+      width: auto;
+      height: 65vh; } }
+
+.sectionCard {
+  width: 95%;
+  height: 90%;
+  background-color: #646464;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 5px 5px 18px #222222;
+  text-align: center; }
+  .sectionCard h3 {
+    color: white; }
+  .sectionCard img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%; }
+  .sectionCard p {
+    text-align: left;
+    display: block; }
+  .sectionCard .btn {
+    text-align: center;
+    margin: auto;
+    text-decoration: none;
+    color: black;
+    background-color: #A9CF54;
+    font-size: 1em;
+    padding: 6px;
+    border-radius: 10px; }
+
+/*# sourceMappingURL=main.css.map */

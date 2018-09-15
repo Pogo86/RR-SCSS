@@ -1,22 +1,34 @@
 /* Scss Document */
 
 $colors: (
-	primary: #22252C,
-	primary-light: lighten(#22252C, 40%),
-	primary-dark: darken(#22252C, 40%),
-	second: #3F3250,
-	second-light: lighten(#3F3250, 40%),
-	second-dark: darken(#3F3250, 40%),
-	third: #C0B3A0,
-	third-light: lighten(#C0B3A0, 40%),
-	third-dark: darken(#C0B3A0, 40%),
-	accsent: #E14658,
-	accsent-light: lighten(#E14658, 40%),
-	accsent-dark: darken(#E14658, 40%),
+	primary: #A9CF54,
+	primary-light: lighten(#A9CF54, 40%),
+	primary-dark: darken(#A9CF54, 40%),
+	second: #588F27,
+	second-light: lighten(#588F27, 40%),
+	second-dark: darken(#588F27, 40%),
+	accsent: #04BFBF,
+	accsent-light: lighten(#04BFBF, 40%),
+	accsent-dark: darken(#04BFBF, 40%),
+	light-grey: #646464,
+	dark-grey: #333333
 );
 
-
-$desktop: 840px;
+$tabletMin: 768px;
+$tabletMax: 1024px;
+$desktop: 1025px;
+@mixin tabletP{
+	@media (min-width: #{$tabletMin}) and (max-width: #{$tabletMax}) and (orientation: portrait){
+		@content;
+	}
+		
+}
+@mixin tabletL{
+	@media(min-width: #{$tabletMin}) and (max-width: #{$tabletMax}) and (orientation: landscape){
+		@content;
+	}
+		
+}
 @mixin desktop{
 	@media screen and (min-width: #{$desktop}){
 		@content;
@@ -36,7 +48,9 @@ body{
 
 /*------   Nav Styles  ------*/
 header{
-	background-color: color(primary-light);
+	
+	//clip-path: polygon(0 0, 90% 0, 80% 100%, 0 100%);
+	background-color: color(dark-grey);
 	text-align: center;
 	z-index: 999;
 	position: fixed;
@@ -49,15 +63,17 @@ header{
 	
 	.logo{
 		display: inline-block;
-		width: 200px;
+		width: 150px;
 		@include desktop{
 			grid-column: 2 / 3;
+			width: 200px;
 		}
 	}
 	.navToggle{
 		display: none;
 	}
 	.navToggleLable{
+		background-color: color(primary);
 		position: absolute;
 		top: 0;
 		left: 0;
@@ -94,10 +110,11 @@ header{
 		top: 100%;
 		left: 0;
 		width: 100%;
-		background-color: color(primary-light);
+		background-color: color(dark-grey);
 		transform: scale(1,0);
 		transform-origin: top;
 		transition: transform 400ms ease-in-out;
+		clip-path: polygon(0 0, 95% 0, 40% 100%, 0 100%);
 		@include desktop{
 			all: unset;
 			grid-column: 3 / 4;
@@ -123,7 +140,7 @@ header{
 				}
 				
 				a{
-					color: color(second);
+					color: white;
 					text-decoration: none;
 					font-size: 1.2rem;
 					text-transform: uppercase;
@@ -137,14 +154,14 @@ header{
 				}
 					
 				a:hover{
-					color: color(accsent);
+					color: color(primary);
 				}
 				a::before{
 					@include desktop{
 						content: '';
 						display: block;
 						height: 3px;
-						background: color(accsent);
+						background: color(primary);
 						position: absolute;
 						top: -0.75em;
 						left: 0;
@@ -171,4 +188,175 @@ header{
 		}
 	}
 	
+}
+// -------- Call to action ---------------//
+#callToAction{
+	background-color: color(dark-grey);
+	background-image: url("../img/Twitter BG.jpg");
+	background-size: cover;
+	background-origin: -100px;
+	height: 90vh;
+	h1{
+		text-align: center;
+		text-transform: uppercase;
+		font-size: 2em;
+		color: white;
+		position: absolute;
+        top: 40%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%);
+		@include desktop{
+			color: black;
+		}
+	}
+	#actionButton{
+		text-align: right;
+		margin: auto;
+		text-decoration: none;
+		color: black;
+		background-color: color(accsent);
+		font-size: 1.5em;
+		padding: 10px;
+		border-radius: 20px;
+		position: absolute;
+        top: 60%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%);
+	}
+}
+// -------- Main Section ---------------//
+#sectionMain{
+	background-color: color(light-grey);
+	height: 55vh;
+	width: 100vw;
+	padding-top: 10px;
+	@include tabletL{
+		height: 90vh;
+	}
+	@include tabletP{
+		height: 55vh;
+	}
+	@include desktop{
+		height: 70vh;
+	}
+	#card{
+		margin-left: auto;
+		margin-right: auto;
+		width: 80vw;
+		height: 50vh;
+		align-content: center;
+		background-color: rgba(255,255,255,.90);
+		box-shadow: 1px 5px 6px #000000;
+		@include tabletL{
+			height: 86vh;
+		}
+		@include tabletP{
+			height: 100vh;
+		}
+		@include desktop{
+			height: 65vh;
+		}
+		img{
+			width: 70vw;
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+			border: thick, #000, solid;
+			@include tabletL{
+				max-height: 50vh;
+				width: auto;
+			}
+			@include tabletP{
+				max-height: 45vh;
+				width: auto;
+				max-width: 90%
+			}
+			@include desktop{
+				width: auto;
+				max-height: 50vh;
+			}
+		}
+		p{
+			width: 70vw;
+			padding-top: 2px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+	}
+}
+// ------------1st section -------//
+#sections{
+	width: 100vw;
+	background-color: color(second-light);
+	@include tabletL{
+		display: grid;
+		grid-template-columns: 45vw 45vw;
+		grid-gap: 5px;
+		padding-top: 5px;
+	}
+	@include desktop{
+		display: grid;
+		grid-template-columns:  33vw auto 33vw;
+		grid-gap: 10px;
+		padding-top: 10px;
+	}
+}
+.section{
+	padding-top: 10px;
+	height: 60vh;
+	width: 100vw;
+	@include desktop{
+		width: auto;
+		height: 65vh;
+	}
+}
+#section1{
+}
+#section2{
+}
+#section3{
+}
+#section4{
+}
+#section5{
+}
+#section6{
+}
+
+.sectionCard{
+	width: 95%;
+	height: 90%;
+	background-color: color(light-grey);
+	margin-left: auto;
+	margin-right: auto;
+	box-shadow: 5px 5px 18px #222222;
+	text-align: center;
+	@include tabletL{
+		
+	}
+	h3{
+		color: white;
+	}
+	img{
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		width: 90%
+	}
+	p{
+		text-align: left;
+		display: block;
+	}
+	.btn{
+		text-align: center;
+		margin: auto;
+		text-decoration: none;
+		color: black;
+		background-color: color(primary);
+		font-size: 1em;
+		padding: 6px;
+		border-radius: 10px;
+	}
 }
